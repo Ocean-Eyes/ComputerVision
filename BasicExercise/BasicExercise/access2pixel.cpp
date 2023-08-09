@@ -8,10 +8,13 @@ int main()
 	cv::Mat img_orig = cv::imread("Lenna.png");
 	cv::Mat img_gray;
 	
+	// 1. Grayscale(1-channel)
 	img_gray = cvtGray(img_orig);
 	int i, j;
 
-	// 1. Mat::at
+	std::cout << "Grayscale results" << std::endl;
+
+	// 1-1) Mat::at
 	for (i = 0; i < img_gray.rows; i++)
 	{
 		for (j = 0; j < img_gray.cols; j++)
@@ -23,7 +26,7 @@ int main()
 		}
 	}
 
-	// 2. Mat::ptr
+	// 1-2) Mat::ptr
 	for (i = 0; i < img_gray.rows; i++)
 	{
 		uchar* pt = img_gray.ptr<uchar>(i);
@@ -37,7 +40,7 @@ int main()
 		}
 	}
 
-	// 3. Mat::data
+	// 1-3) Mat::data
 	uchar* pt2 = img_gray.data;
 
 	for (i = 0; i < img_gray.rows; i++)
@@ -47,6 +50,62 @@ int main()
 			if (i == 25 && j == 25)
 			{
 				std::cout << "Mat::data result : " << static_cast<int>(pt2[img_gray.cols * i + j]) << std::endl;
+			}
+		}
+	}
+
+	// 2. BGR(3-channel)
+
+	std::cout << "\nBGR results:" << std::endl;
+
+	// 2-1) Mat::at
+	for (i = 0; i < img_orig.rows; i++)
+	{
+		for (j = 0; j < img_orig.cols; j++)
+		{
+			uchar b = img_orig.at<cv::Vec3b>(i, j)[0];
+			uchar g = img_orig.at<cv::Vec3b>(i, j)[1];
+			uchar r = img_orig.at<cv::Vec3b>(i, j)[2];
+
+			if (i == 25 && j == 25)
+			{
+				std::cout << "Mat::at result : " << static_cast<int>(b) << " " << static_cast<int>(g) << " " << static_cast<int>(r) << std::endl;
+			}
+		}
+	}
+
+	// 2-2) Mat::ptr
+	for (i = 0; i < img_orig.rows; i++)
+	{
+		uchar* ptr = img_orig.ptr<uchar>(i);
+
+		for (j = 0; j < img_orig.cols; j++)
+		{
+			uchar b = ptr[j * 3];
+			uchar g = ptr[j * 3 + 1];
+			uchar r = ptr[j * 3 + 2];
+		
+			if (i == 25 && j == 25)
+			{
+				std::cout << "Mat::ptr result : " << static_cast<int>(b) << " " << static_cast<int>(g) << " " << static_cast<int>(r) << std::endl;
+			}
+		}
+	}
+
+	// 2-3) Mat::data
+	uchar* data = img_orig.data;
+
+	for (i = 0; i < img_orig.rows; i++)
+	{
+		for (j = 0; j < img_orig.cols; j++)
+		{
+			uchar b = data[i * img_orig.cols * 3 + j * 3];
+			uchar g = data[i * img_orig.cols * 3 + j * 3 + 1];
+			uchar r = data[i * img_orig.cols * 3 + j * 3 + 2];
+		
+			if (i == 25 && j == 25)
+			{
+				std::cout << "Mat::data result : " << static_cast<int>(b) << " " << static_cast<int>(g) << " " << static_cast<int>(r) << std::endl;
 			}
 		}
 	}
