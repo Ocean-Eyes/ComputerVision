@@ -7,7 +7,11 @@ int main()
 {
 	cv::Mat img_orig = cv::imread("Lenna.png");
 	cv::Mat img_gray;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	// 1. Grayscale(1-channel)
 	img_gray = cvtGray(img_orig);
 	int i, j;
@@ -30,7 +34,11 @@ int main()
 	for (i = 0; i < img_gray.rows; i++)
 	{
 		uchar* pt = img_gray.ptr<uchar>(i);
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 		for (j = 0; j < img_gray.cols; j++)
 		{
 			if (i == 25 && j == 25)
@@ -84,7 +92,11 @@ int main()
 			uchar b = ptr[j * 3];
 			uchar g = ptr[j * 3 + 1];
 			uchar r = ptr[j * 3 + 2];
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 			if (i == 25 && j == 25)
 			{
 				std::cout << "Mat::ptr result : " << static_cast<int>(b) << " " << static_cast<int>(g) << " " << static_cast<int>(r) << std::endl;
@@ -102,7 +114,11 @@ int main()
 			uchar b = data[i * img_orig.cols * 3 + j * 3];
 			uchar g = data[i * img_orig.cols * 3 + j * 3 + 1];
 			uchar r = data[i * img_orig.cols * 3 + j * 3 + 2];
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 			if (i == 25 && j == 25)
 			{
 				std::cout << "Mat::data result : " << static_cast<int>(b) << " " << static_cast<int>(g) << " " << static_cast<int>(r) << std::endl;
@@ -112,7 +128,11 @@ int main()
 
 	cv::waitKey();
 	cv::destroyAllWindows();
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	return 0;
 }
 

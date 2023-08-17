@@ -22,30 +22,50 @@ int main()
 	// 1. without LPF
 	cv::Mat img_downsampled_woLPF(row, col, CV_8UC1);
 
+<<<<<<< HEAD
 	for (int i = 0; i < img_gray.rows; i+=scale)
+=======
+	for (int i = 0; i < img_gray.rows; i += scale)
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	{
 		uchar* ptr_gray = img_gray.ptr<uchar>(i);
 		uchar* ptr_downsampled = img_downsampled_woLPF.ptr<uchar>(static_cast<int>(i / scale));
 
+<<<<<<< HEAD
 		for (int j = 0; j < img_gray.cols; j+=scale)
+=======
+		for (int j = 0; j < img_gray.cols; j += scale)
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 		{
 			ptr_downsampled[static_cast<int>(j / scale)] = ptr_gray[j];
 		}
 	}
 	cv::namedWindow("Downsampled Image", cv::WINDOW_NORMAL);
+<<<<<<< HEAD
 	cv::resizeWindow("Downsampled Image", img_orig.rows ,img_orig.cols);
+=======
+	cv::resizeWindow("Downsampled Image", img_orig.rows, img_orig.cols);
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	cv::imshow("Downsampled Image", img_downsampled_woLPF);
 
 	// 2. with box kernel
 	cv::Mat img_downsampled_box(row, col, CV_8UC1);
 	cv::Mat img_temp_bk = cv::Mat::zeros(row + 2, col + 2, CV_8UC1);
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	// Make a image with zero-padding
 	for (int i = 0; i < img_downsampled_woLPF.rows; i++)
 	{
 		uchar* ptr_src = img_downsampled_woLPF.ptr<uchar>(i);
 		uchar* ptr_dst = img_temp_bk.ptr<uchar>(i + 1);
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 		for (int j = 0; j < img_downsampled_woLPF.cols; j++)
 		{
 			ptr_dst[j + 1] = ptr_src[j];
@@ -54,11 +74,19 @@ int main()
 	}
 
 	// Define box filter
+<<<<<<< HEAD
 	int box_filter[3][3] = { 
 								{1, 1, 1},
 								{1, 1, 1},
 								{1, 1, 1}
 						   };
+=======
+	int box_filter[3][3] = {
+								{1, 1, 1},
+								{1, 1, 1},
+								{1, 1, 1}
+	};
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	int sum;
 
 	// Apply 2D-convolution with Box kernel
@@ -85,7 +113,11 @@ int main()
 	cv::imshow("Image Filtered By Box Kernel", img_downsampled_box);
 
 	// 3. with Gaussian kernel
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	// Make empty Mat objects that will be stored image filtered by gaussian kernel
 	cv::Mat img_downsampled_gs(row, col, CV_8UC1);
 
@@ -107,8 +139,13 @@ int main()
 								{1, 2, 1},
 								{2, 4, 2},
 								{1, 2, 1}
+<<<<<<< HEAD
 						  };
 	
+=======
+	};
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	// Apply 2D-convolution by Gaussian kernel
 	for (int y = 0; y < img_temp_gs.rows - 2; y++)
 	{
@@ -151,6 +188,10 @@ cv::Mat cvtGray(cv::Mat src_img)
 	cv::split(src_img, bgr);
 
 	dst_img = bgr[0] * 0.299 + bgr[1] * 0.587 + bgr[2] * 0.114;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
 	return dst_img;
 }

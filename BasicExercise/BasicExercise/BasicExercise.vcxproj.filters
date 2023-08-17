@@ -15,20 +15,44 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="HelloWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
     <ClCompile Include="imread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bgr2gray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="threshold.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="access2pixel.cpp">
+=======
+    <ClCompile Include="access2pixel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="threshold.cpp">
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Downsampling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="Upsampling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Lenna.png">
+      <Filter>Source Files</Filter>
+    </Image>
+>>>>>>> 93e37a31cd4142ef6dd8f524bccbd11452ffab46
   </ItemGroup>
 </Project>
